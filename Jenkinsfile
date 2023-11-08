@@ -16,12 +16,12 @@ node () {
         }
 
         stage('Quality Gate') {
-                timeout(time: 10, unit: 'MINUTES'){
+                //timeout(time: 10, unit: 'MINUTES'){
                     def qualityGate = waitForQualityGate()
                     if (qualityGate.status != 'OK') {
                         error "Quality Gate failed: ${qualityGate.status}"
 		    }
-                }
+               // }
         }
 
 	stage ('Maven-freestyle - Build') {
