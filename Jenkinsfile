@@ -10,7 +10,7 @@ node () {
 	stage('Static Code Analysis') {
                 // Execute static code analysis using SonarQube scanner
                 withSonarQubeEnv('SonarQube Server') {
-                    bat 'mvn sonar:sonar'
+                    bat 'mvn sonar:sonar -Dsonar.login=admin -Dsonar.password=admin@123'
                 
             }
         }
