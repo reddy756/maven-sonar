@@ -16,13 +16,11 @@ node () {
         }
 
         stage('Quality Gate') {
-                // Check the status of the SonarQube Quality Gate
-                script {
+                timeout(time: 200, unit: MINUTES)
                     def qualityGate = waitForQualityGate()
                     if (qualityGate.status != 'OK') {
                         error "Quality Gate failed: ${qualityGate.status}"
                     }
-                }
         }
 
 	stage ('Maven-freestyle - Build') {
