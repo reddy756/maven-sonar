@@ -4,7 +4,7 @@ timestamps {
 
 node () {
 
-	stage ('Maven-freestyle - Checkout') {
+	stage ('Maven - Checkout') {
  	 checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: '900caf5f-a681-49c4-ad6b-a026f64612bf', url: 'https://github.com/ganesh8338/maven-war.git']]]) 
 	}
 	stage('Static Code Analysis') {
