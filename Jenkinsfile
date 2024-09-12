@@ -5,12 +5,12 @@ timestamps {
 node () {
 
 	stage ('Maven - Checkout') {
- 	 checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: '900caf5f-a681-49c4-ad6b-a026f64612bf', url: 'https://github.com/ganesh8338/maven-war.git']]]) 
+ 	 checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: '3d7f7ad1-1513-4141-96cb-1b2ea95ce61c', url: 'https://github.com/reddy756/maven-sonar.git']]]) 
 	}
 	stage('Static Code Analysis') {
                 // Execute static code analysis using SonarQube scanner
                 withSonarQubeEnv('SonarQube Server') {
-                    bat 'mvn sonar:sonar -Dsonar.login=admin -Dsonar.password=admin@123'
+                    bat 'mvn sonar:sonar -Dsonar.login=admin -Dsonar.password=1234'
                 
             }
         }
